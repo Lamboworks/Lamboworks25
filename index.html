@@ -112,7 +112,7 @@
                             View Gallery
                         </button>
                     </a>
-                </div>
+</div>
                 
                 <div class="service-card p-8 rounded-lg golden-border border">
                     <div class="text-5xl golden-text mb-6">
@@ -224,7 +224,7 @@
                         </div>
                         <div class="flex justify-center space-x-4 mt-2">
                             <i data-feather="mail" class="mr-2"></i>
-                            <span>Lamboworks25@gmail.com</span>
+                            <span>contact@lamboworks.com</span>
                         </div>
                     </div>
 </form>
@@ -264,7 +264,7 @@
                         <div class="text-sm">Focus On Your Project</div>
                     </div>
                 </div>
-                <p>© 2025 Lambo Works. Bringing fresh energy to Coastal Andhra Pradesh's construction scene.</p>
+                <p>© 2023 Lambo Works. Bringing fresh energy to Coastal Andhra Pradesh's construction scene.</p>
 <p class="mt-2">Special inaugural pricing for our first clients!</p>
 </div>
         </footer>
@@ -279,7 +279,7 @@
 
         // Initialize Vanta.js globe with more dynamic settings
         VANTA.GLOBE({
-            el: "#vanta-bg",
+el: "#vanta-bg",
             mouseControls: true,
             touchControls: true,
             gyroControls: false,
@@ -292,13 +292,11 @@
             size: 0.8,
             speed: 0.7,
             backgroundAlpha: 0
-        });
-        
+});
         // Initialize Feather Icons
         feather.replace();
 
         // Floating animation for trust badges
-        /* Removed as it conflicts with hover
         setInterval(() => {
             anime({
                 targets: '.service-card',
@@ -309,11 +307,7 @@
                 delay: anime.stagger(200)
             });
         }, 5000);
-        */
-        
         // Focus animation for service cards
-        // Assuming 'anime' is available from a library, otherwise this will cause an error
-        /*
         anime({
             targets: '.service-card',
             scale: [0.95, 1],
@@ -321,9 +315,8 @@
             duration: 1500,
             delay: anime.stagger(100)
         });
-        */
         
-        // Smooth scrolling for anchor links (Standard behavior)
+        // Smooth scrolling for internal anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -333,12 +326,21 @@
             });
         });
 
-        // NEW FIX: Scroll to anchor on page load (Fixes external link issue)
+        // NEW FIX: Scroll to anchor on page load (Fixes external link issue from blurry.html)
         window.onload = function() {
             if (window.location.hash) {
+                // This handles if the link still has #services
                 const target = document.querySelector(window.location.hash);
                 if (target) {
                     target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            } else if (document.referrer.includes('blurry.html')) {
+                // This handles if the server stripped #services but we know the user came from the gallery
+                const services = document.getElementById('services');
+                if (services) {
+                    services.scrollIntoView({
                         behavior: 'smooth'
                     });
                 }
