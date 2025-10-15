@@ -28,26 +28,28 @@
             border-color: #D4AF37;
         }
         
+        /* FIX 1: NEW CLASS FOR FLIPPABLE CARDS ONLY */
         .service-card-container {
             perspective: 1000px;
             /* Ensures all containers are the same height in the grid to prevent layout collapse */
             min-height: 20rem; 
         }
         
-        .service-card {
+        .service-flip-card {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
-            transition: all 0.6s;
+            /* FIX 2: Increased transition time for a smooth, slow flip */
+            transition: all 1.2s; 
             transform-style: preserve-3d;
             position: relative;
             width: 100%;
             height: 100%;
             border: 1px solid #D4AF37;
-            /* FIX: Prevents any content from leaking outside the 3D card boundaries */
+            /* Prevents any content from leaking outside the 3D card boundaries */
             overflow: hidden; 
         }
         
-        .service-card:hover {
+        .service-flip-card:hover {
             transform: rotateY(180deg);
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
         }
@@ -96,7 +98,6 @@
             width: 100%;
         }
         
-        /* FIX: Ensures the icon/title/description flow correctly and fill space */
         .card-content-wrapper {
             flex-grow: 1;
             display: flex;
@@ -137,7 +138,7 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=ceiling" class="block w-full h-full no-underline">
-                        <div class="service-card rounded-lg" data-service="ceiling">
+                        <div class="service-flip-card rounded-lg" data-service="ceiling">
                             <div class="service-card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
@@ -160,7 +161,7 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=wardrobes" class="block w-full h-full no-underline">
-                        <div class="service-card rounded-lg" data-service="wardrobes">
+                        <div class="service-flip-card rounded-lg" data-service="wardrobes">
                             <div class="service-card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
@@ -183,7 +184,7 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=construction" class="block w-full h-full no-underline">
-                        <div class="service-card rounded-lg" data-service="construction">
+                        <div class="service-flip-card rounded-lg" data-service="construction">
                             <div class="service-card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
@@ -206,7 +207,7 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=maintenance" class="block w-full h-full no-underline">
-                        <div class="service-card rounded-lg" data-service="maintenance">
+                        <div class="service-flip-card rounded-lg" data-service="maintenance">
                             <div class="service-card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
@@ -225,7 +226,7 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=realestate" class="block w-full h-full no-underline">
-                        <div class="service-card rounded-lg" data-service="realestate">
+                        <div class="service-flip-card rounded-lg" data-service="realestate">
                             <div class="service-card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
@@ -244,7 +245,7 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=marksmen" class="block w-full h-full no-underline">
-                        <div class="service-card rounded-lg" data-service="marksmen">
+                        <div class="service-flip-card rounded-lg" data-service="marksmen">
                             <div class="service-card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
@@ -292,8 +293,8 @@
         
         <section id="contact" class="container mx-auto px-6 py-20">
             <h2 class="text-4xl font-bold golden-text mb-16 text-center">Begin Your Golden Transformation</h2>
-            <div class="max-w-2xl mx-auto service-card-container"> 
-                <div class="service-card rounded-lg p-10 golden-border border-2 transform-none">
+            <div class="max-w-2xl mx-auto"> 
+                <div class="rounded-lg p-10 golden-border border-2 bg-black/70 backdrop-blur-md">
                 <form>
                     <div class="mb-6">
                         <label class="block golden-text mb-2">Your Name</label>
@@ -417,10 +418,9 @@
             });
         });
 
-        // The original floating animation was causing conflicts with the flip effect and was removed. 
-        // We will keep the anime.js scale animation for a nice entrance.
+        // The entrance animation now only targets the flippable service cards
         anime({
-            targets: '.service-card',
+            targets: '.service-flip-card',
             scale: [0.95, 1],
             easing: 'easeInOutSine',
             duration: 1500,
