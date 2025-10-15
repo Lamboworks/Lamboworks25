@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lambo Works - Trusted Home Construction & Renovation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
     <style>
@@ -27,16 +27,14 @@
             border-color: #D4AF37;
         }
         
-        /* Service Card Styling */
         .service-card {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
-            /* New: Gentle lift on hover */
             transition: all 0.3s ease;
         }
         
         .service-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
         }
         
@@ -58,23 +56,14 @@
         .nav-link:hover::after {
             width: 100%;
         }
-        
-        /* Ensures content flows correctly and pushes the button to the bottom */
-        .card-content-wrapper {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
     </style>
 </head>
 <body>
     <div class="fixed top-0 left-0 w-full h-full z-0 bg-cover bg-center opacity-20" style="background-image: url('https://enzostvs-deepsite.hf.space/_next/image?url=https%3A%2F%2Fhuggingface.co%2Fspaces%2FLamboworks%2Flambo-luxe-builders%2Fresolve%2Fmain%2Fimages%2FLogo.png&w=128&q=75')"></div>
-    
-    <div class="relative z-10">
+<div class="relative z-10">
         <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
             <img src="https://enzostvs-deepsite.hf.space/_next/image?url=https%3A%2F%2Fhuggingface.co%2Fspaces%2FLamboworks%2Flambo-luxe-builders%2Fresolve%2Fmain%2Fimages%2FLogo.png&w=128&q=75" alt="Lambo Works Logo" class="h-12 animate__animated animate__fadeInDown">
-            <div class="hidden md:flex space-x-10">
+<div class="hidden md:flex space-x-10">
                 <a href="#home" class="nav-link golden-text">Home</a>
                 <a href="#services" class="nav-link golden-text">Services</a>
                 <a href="#about" class="nav-link golden-text">About</a>
@@ -88,46 +77,35 @@
         <section id="home" class="container mx-auto px-6 py-32 text-center">
             <h1 class="text-5xl md:text-7xl font-bold golden-text mb-6 animate__animated animate__fadeIn animate__delay-1s">Crafting Tomorrow's Masterpieces Today</h1>
             <p class="text-xl golden-text mb-10 max-w-2xl mx-auto animate__animated animate__fadeIn animate__delay-2s">Launching Our Craftsmanship | Passionate Team | Satisfaction Guarantee</p>
-            <button class="px-8 py-3 golden-border border-2 rounded-full golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
+<button class="px-8 py-3 golden-border border-2 rounded-full golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
                 Get Your Free Consultation
             </button>
         </section>
         
         <section id="services" class="container mx-auto px-6 py-20">
             <h2 class="text-4xl font-bold golden-text mb-16 text-center">Our Golden Services</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
-                    <div class="card-content-wrapper">
-                        <div class="text-5xl golden-text mb-6">
-                            <i data-feather="layers"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold golden-text mb-4">False Ceiling & Lighting</h3>
-                        <p class="text-gray-300 mb-4">Elevate your interiors with our premium false ceiling designs and ambient lighting solutions.</p>
-                        <div class="flex items-center text-yellow-400">
-                            <i data-feather="star" class="mr-2"></i>
-                            <span class="text-sm">Founding Client Special</span>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="service-card p-8 rounded-lg golden-border border">
+                    <div class="text-5xl golden-text mb-6">
+                        <i data-feather="layers"></i>
                     </div>
-                    <div class="mt-6 block">
-                        <button disabled class="w-full py-2 border rounded text-gray-500 border-gray-500 cursor-not-allowed">
-                            Details Coming Soon
-                        </button>
+                    <h3 class="text-2xl font-bold golden-text mb-4">False Ceiling & Lighting</h3>
+                    <p class="text-gray-300 animate__animated animate__fadeIn animate__delay-1s">Elevate your interiors with our premium false ceiling designs and ambient lighting solutions.</p>
+                        <div class="mt-4 flex items-center text-yellow-400">
+                        <i data-feather="star" class="mr-2"></i>
+                        <span class="text-sm">Founding Client Special</span>
                     </div>
-                </div>
+</div>
                 
-                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
-                    <div class="card-content-wrapper">
-                        <div class="text-5xl golden-text mb-6">
-                            <i data-feather="box"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold golden-text mb-4">Modular Wardrobes</h3>
-                        <p class="text-gray-300 mb-4">Custom-designed wardrobes that maximize space while adding elegance to your rooms.</p>
-                        <div class="flex items-center text-yellow-400">
-                            <i data-feather="check-circle" class="mr-2"></i>
-                            <span class="text-sm">5-Year Warranty</span>
-                        </div>
+                <div class="service-card p-8 rounded-lg golden-border border">
+                    <div class="text-5xl golden-text mb-6">
+                        <i data-feather="box"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold golden-text mb-4">Modular Wardrobes</h3>
+                    <p class="text-gray-300 animate__animated animate__fadeIn animate__delay-1s">Custom-designed wardrobes that maximize space while adding elegance to your rooms.</p>
+                    <div class="mt-4 flex items-center text-yellow-400">
+                        <i data-feather="check-circle" class="mr-2"></i>
+                        <span class="text-sm">5-Year Warranty</span>
                     </div>
                     <a href="blurry.html" class="mt-6 block">
                         <button class="w-full py-2 golden-border border rounded golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
@@ -136,68 +114,40 @@
                     </a>
                 </div>
                 
-                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
-                    <div class="card-content-wrapper">
-                        <div class="text-5xl golden-text mb-6">
-                            <i data-feather="home"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold golden-text mb-4">House Construction & Renovation</h3>
-                        <p class="text-gray-300 mb-4">From ground-up construction to complete home makeovers, we build dreams into reality.</p>
-                        <div class="flex items-center text-yellow-400">
-                            <i data-feather="check-circle" class="mr-2"></i>
-                            <span class="text-sm">Licensed & Insured</span>
-                        </div>
+                <div class="service-card p-8 rounded-lg golden-border border">
+                    <div class="text-5xl golden-text mb-6">
+                        <i data-feather="home"></i>
                     </div>
-                    <div class="mt-6 block">
-                        <button disabled class="w-full py-2 border rounded text-gray-500 border-gray-500 cursor-not-allowed">
-                            Details Coming Soon
-                        </button>
+                    <h3 class="text-2xl font-bold golden-text mb-4">House Construction & Renovation</h3>
+                    <p class="text-gray-300 animate__animated animate__fadeIn animate__delay-1s">From ground-up construction to complete home makeovers, we build dreams into reality.</p>
+                    <div class="mt-4 flex items-center text-yellow-400">
+                        <i data-feather="check-circle" class="mr-2"></i>
+                        <span class="text-sm">Licensed & Insured</span>
                     </div>
+</div>
+                
+                <div class="service-card p-8 rounded-lg golden-border border">
+                    <div class="text-5xl golden-text mb-6">
+                        <i data-feather="tool"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold golden-text mb-4">Carpentry, Painting, Plumbing, Electrical</h3>
+                    <p class="text-gray-300">Comprehensive home improvement services with unmatched craftsmanship.</p>
                 </div>
                 
-                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
-                    <div class="card-content-wrapper">
-                        <div class="text-5xl golden-text mb-6">
-                            <i data-feather="tool"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold golden-text mb-4">Carpentry, Painting, Plumbing, Electrical</h3>
-                        <p class="text-gray-300 mb-4">Comprehensive home improvement services with unmatched craftsmanship.</p>
+                <div class="service-card p-8 rounded-lg golden-border border">
+                    <div class="text-5xl golden-text mb-6">
+                        <i data-feather="dollar-sign"></i>
                     </div>
-                    <div class="mt-6 block">
-                        <button disabled class="w-full py-2 border rounded text-gray-500 border-gray-500 cursor-not-allowed">
-                            Details Coming Soon
-                        </button>
-                    </div>
+                    <h3 class="text-2xl font-bold golden-text mb-4">Real Estate Services</h3>
+                    <p class="text-gray-300">Buy | Sell | Rent | Lease - Residential & Commercial properties across Coastal Andhra.</p>
                 </div>
                 
-                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
-                    <div class="card-content-wrapper">
-                        <div class="text-5xl golden-text mb-6">
-                            <i data-feather="dollar-sign"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold golden-text mb-4">Real Estate Services</h3>
-                        <p class="text-gray-300 mb-4">Buy | Sell | Rent | Lease - Residential & Commercial properties across Coastal Andhra.</p>
+                <div class="service-card p-8 rounded-lg golden-border border">
+                    <div class="text-5xl golden-text mb-6">
+                        <i data-feather="award"></i>
                     </div>
-                    <div class="mt-6 block">
-                        <button disabled class="w-full py-2 border rounded text-gray-500 border-gray-500 cursor-not-allowed">
-                            Details Coming Soon
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
-                    <div class="card-content-wrapper">
-                        <div class="text-5xl golden-text mb-6">
-                            <i data-feather="award"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold golden-text mb-4">Skilled Marksmen</h3>
-                        <p class="text-gray-300 mb-4">Our craftsmen deliver perfection in every detail, ensuring flawless execution.</p>
-                    </div>
-                    <div class="mt-6 block">
-                        <button disabled class="w-full py-2 border rounded text-gray-500 border-gray-500 cursor-not-allowed">
-                            Details Coming Soon
-                        </button>
-                    </div>
+                    <h3 class="text-2xl font-bold golden-text mb-4">Skilled Marksmen</h3>
+                    <p class="text-gray-300">Our craftsmen deliver perfection in every detail, ensuring flawless execution.</p>
                 </div>
             </div>
         </section>
@@ -214,7 +164,7 @@
                         We're excited to launch our services and looking for our first showcase project. 
                         Your home will receive our undivided attention and become our top priority.
                     </p>
-                    <p class="text-gray-300">
+<p class="text-gray-300">
                         Currently serving all major cities in Coastal Andhra Pradesh, we're ready to transform your living spaces into golden showcases of elegance and functionality.
                     </p>
                 </div>
@@ -231,7 +181,7 @@
         
         <section id="contact" class="container mx-auto px-6 py-20">
             <h2 class="text-4xl font-bold golden-text mb-16 text-center">Begin Your Golden Transformation</h2>
-            <div class="max-w-2xl mx-auto p-10 rounded-lg golden-border border bg-black/70 backdrop-blur-md"> 
+            <div class="max-w-2xl mx-auto service-card p-10 rounded-lg golden-border border">
                 <form>
                     <div class="mb-6">
                         <label class="block golden-text mb-2">Your Name</label>
@@ -274,17 +224,17 @@
                         </div>
                         <div class="flex justify-center space-x-4 mt-2">
                             <i data-feather="mail" class="mr-2"></i>
-                            <span>lamboworks25@gmail.com</span>
+                            <span>Lamboworks25@gmail.com</span>
                         </div>
                     </div>
-                </form>
+</form>
             </div>
         </section>
         
         <footer class="container mx-auto px-6 py-12 border-t golden-border border-opacity-20">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="text-2xl font-bold golden-text mb-6 md:mb-0 animate__animated animate__fadeIn">Lambo Works</div>
-                <div class="flex space-x-6">
+<div class="flex space-x-6">
                     <a href="#" class="golden-text hover:text-yellow-600 transition duration-300">
                         <i data-feather="facebook"></i>
                     </a>
@@ -314,17 +264,20 @@
                         <div class="text-sm">Focus On Your Project</div>
                     </div>
                 </div>
-                <p>© 2023 Lambo Works. Bringing fresh energy to Coastal Andhra Pradesh's construction scene.</p>
-                <p class="mt-2">Special inaugural pricing for our first clients!</p>
-            </div>
+                <p>© 2025 Lambo Works. Bringing fresh energy to Coastal Andhra Pradesh's construction scene.</p>
+<p class="mt-2">Special inaugural pricing for our first clients!</p>
+</div>
         </footer>
     </div>
 
-    <div id="vanta-bg" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></div>
-
-
     <script>
-        // Initialize Vanta.js globe
+        // Trust badges animation
+        document.querySelectorAll('.service-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.classList.add('animate__animated', 'animate__fadeInUp');
+        });
+
+        // Initialize Vanta.js globe with more dynamic settings
         VANTA.GLOBE({
             el: "#vanta-bg",
             mouseControls: true,
@@ -340,11 +293,37 @@
             speed: 0.7,
             backgroundAlpha: 0
         });
-
+        
         // Initialize Feather Icons
         feather.replace();
 
-        // Smooth scrolling for anchor links
+        // Floating animation for trust badges
+        /* Removed as it conflicts with hover
+        setInterval(() => {
+            anime({
+                targets: '.service-card',
+                translateY: [0, -15],
+                direction: 'alternate',
+                easing: 'easeInOutSine',
+                duration: 3000,
+                delay: anime.stagger(200)
+            });
+        }, 5000);
+        */
+        
+        // Focus animation for service cards
+        // Assuming 'anime' is available from a library, otherwise this will cause an error
+        /*
+        anime({
+            targets: '.service-card',
+            scale: [0.95, 1],
+            easing: 'easeInOutSine',
+            duration: 1500,
+            delay: anime.stagger(100)
+        });
+        */
+        
+        // Smooth scrolling for anchor links (Standard behavior)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -353,7 +332,18 @@
                 });
             });
         });
+
+        // NEW FIX: Scroll to anchor on page load (Fixes external link issue)
+        window.onload = function() {
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        };
     </script>
 </body>
 </html>
-
