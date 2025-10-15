@@ -89,3 +89,135 @@
       <button onclick="closeModal()" class="px-6 py-2 golden-border border rounded golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition">Close</button>
     </div>
   </div>
+    <!-- About Section -->
+  <section id="about" class="container mx-auto px-6 py-20">
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-10 md:mb-0">
+        <h2 class="text-4xl font-bold golden-text mb-6">Our Golden Promise</h2>
+        <p class="text-gray-300 mb-6">
+          Lambo Works was founded by industry professionals with years of collective experience in home construction and renovation.
+          Though newly established, our team brings proven expertise to every project.
+        </p>
+        <p class="text-gray-300 mb-6">
+          We're excited to launch our services and looking for our first showcase project. 
+          Your home will receive our undivided attention and become our top priority.
+        </p>
+        <p class="text-gray-300">
+          Currently serving all major cities in Coastal Andhra Pradesh, we're ready to transform your living spaces into golden showcases of elegance and functionality.
+        </p>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <div class="relative w-64 h-64 md:w-80 md:h-80 golden-border border-2 rounded-full flex items-center justify-center">
+          <div class="absolute inset-0 rounded-full border-2 border-opacity-20 golden-border animate-ping"></div>
+          <div class="text-5xl golden-text">
+            <i data-feather="star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container mx-auto px-6 py-20">
+    <h2 class="text-4xl font-bold golden-text mb-16 text-center">Begin Your Golden Transformation</h2>
+    <div class="max-w-2xl mx-auto service-card p-10 rounded-lg golden-border border">
+      <form>
+        <!-- Form Fields -->
+        <div class="mb-6">
+          <label class="block golden-text mb-2">Your Name</label>
+          <input type="text" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text">
+        </div>
+        <div class="mb-6">
+          <label class="block golden-text mb-2">Contact Number</label>
+          <input type="tel" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text">
+        </div>
+        <div class="mb-6">
+          <label class="block golden-text mb-2">Service Interest</label>
+          <select class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text">
+            <option>False Ceiling & Lighting</option>
+            <option>Modular Wardrobes</option>
+            <option>House Construction & Renovation</option>
+            <option>Carpentry, Painting, Plumbing, Electrical</option>
+            <option>Real Estate Services</option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <label class="block golden-text mb-2">Message</label>
+          <textarea class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text" rows="4"></textarea>
+        </div>
+        <div class="mb-6">
+          <label class="block golden-text mb-2">Email</label>
+          <input type="email" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text">
+        </div>
+        <div class="mb-6">
+          <label class="block golden-text mb-2">Location</label>
+          <input type="text" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text">
+        </div>
+        <button type="submit" class="w-full py-3 golden-border border-2 rounded-full golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
+          Submit Request
+        </button>
+        <div class="mt-6 text-center golden-text">
+          <p>Or contact us directly:</p>
+          <div class="mt-2">
+            <i data-feather="phone" class="inline mr-2"></i>
+            <span>+91 89788 02451 & +91 70367 21244</span>
+          </div>
+          <div class="mt-2">
+            <i data-feather="mail" class="inline mr-2"></i>
+            <span>lamboworks25@gmail.com</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="container mx-auto px-6 py-12 border-t golden-border border-opacity-20">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="text-2xl font-bold golden-text mb-6 md:mb-0">Lambo Works</div>
+      <div class="flex space-x-6">
+        <a href="#" class="golden-text hover:text-yellow-600 transition duration-300"><i data-feather="facebook"></i></a>
+        <a href="#" class="golden-text hover:text-yellow-600 transition duration-300"><i data-feather="instagram"></i></a>
+        <a href="#" class="golden-text hover:text-yellow-600 transition duration-300"><i data-feather="twitter"></i></a>
+        <a href="#" class="golden-text hover:text-yellow-600 transition duration-300"><i data-feather="linkedin"></i></a>
+      </div>
+    </div>
+    <div class="mt-8 text-center golden-text text-opacity-70">
+      <div class="flex justify-center space-x-8 mb-6">
+        <div class="text-center">
+          <div class="text-3xl golden-text">New</div>
+          <div class="text-sm">Exciting Beginnings</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl golden-text">5+</div>
+          <div class="text-sm">Years Team Experience</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl golden-text">100%</div>
+          <div class="text-sm">Focus On Your Project</div>
+        </div>
+      </div>
+      <p>© 2023 Lambo Works. Bringing fresh energy to Coastal Andhra Pradesh's construction scene.</p>
+      <p class="mt-2">Special inaugural pricing for our first clients!</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Modal logic
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.getElementById('serviceModal').classList.remove('hidden');
+      });
+    });
+    function closeModal() {
+      document.getElementById('serviceModal').classList.add('hidden');
+    }
+
+    // Feather icons
+    feather.replace();
+  </script>
+</body>
+</html>
+
+
