@@ -326,26 +326,28 @@ el: "#vanta-bg",
             });
         });
 
-        // NEW FIX: Scroll to anchor on page load (Fixes external link issue from blurry.html)
+        // <----------------- FINAL FIX JAVASCRIPT IS HERE ----------------->
+        // This function runs once the page loads and forces a scroll if coming from the gallery.
         window.onload = function() {
-            if (window.location.hash) {
-                // This handles if the link still has #services
-                const target = document.querySelector(window.location.hash);
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            } else if (document.referrer.includes('blurry.html')) {
-                // This handles if the server stripped #services but we know the user came from the gallery
+            if (document.referrer.includes('blurry.html')) {
+                // If the user came from blurry.html, scroll to services
                 const services = document.getElementById('services');
                 if (services) {
                     services.scrollIntoView({
                         behavior: 'smooth'
                     });
                 }
+            } else if (window.location.hash) {
+                // This handles standard internal links if they have a hash
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             }
         };
+        // <---------------------------------------------------------------->
     </script>
 </body>
 </html>
