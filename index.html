@@ -122,7 +122,6 @@
     <h2 class="text-4xl font-bold golden-text mb-16 text-center">Begin Your Golden Transformation</h2>
     <div class="max-w-2xl mx-auto service-card p-10 rounded-lg golden-border border">
       <form>
-        <!-- Form Fields -->
         <div class="mb-6">
           <label class="block golden-text mb-2">Your Name</label>
           <input type="text" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text">
@@ -204,7 +203,6 @@
 
   <!-- Scripts -->
   <script>
-    // Modal logic
     document.querySelectorAll('.service-card').forEach(card => {
       card.addEventListener('click', () => {
         document.getElementById('serviceModal').classList.remove('hidden');
@@ -213,11 +211,8 @@
     function closeModal() {
       document.getElementById('serviceModal').classList.add('hidden');
     }
-
-    // Feather icons
     feather.replace();
   </script>
 </body>
 </html>
-
 
