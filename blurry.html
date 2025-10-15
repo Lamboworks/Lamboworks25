@@ -35,12 +35,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Semi-transparent black background */
-            background-color: rgba(0, 0, 0, 0.85); 
+            /* Semi-transparent black background creates the dimmed/blurry look */
+            background-color: rgba(0, 0, 0, 0.9); 
             
-            /* The blurry effect on top of the black background. */
-            /* Note: Backdrop-filter works on elements BEHIND the gallery. 
-               We will use Vanta.js and a dark overlay to achieve the visual effect */
             z-index: 1000;
             overflow-y: auto; /* Allows scrolling inside the gallery */
             padding: 2rem 0;
@@ -70,7 +67,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <a href="wardrobe/img.jpg" target="_blank" class="block rounded-lg overflow-hidden golden-border border-2 hover:opacity-80 transition duration-300">
+                <a href="wardrobe/img1.jpg" target="_blank" class="block rounded-lg overflow-hidden golden-border border-2 hover:opacity-80 transition duration-300">
                     <img src="wardrobe/img1.jpg" alt="Custom Walk-in Wardrobe" class="w-full h-full object-cover">
                 </a>
 
@@ -86,7 +83,15 @@
                     <img src="wardrobe/img4.jpg" alt="Modern Finishes" class="w-full h-full object-cover">
                 </a>
                 
-                </div>
+                <a href="wardrobe/img5.jpg" target="_blank" class="block rounded-lg overflow-hidden golden-border border-2 hover:opacity-80 transition duration-300">
+                    <img src="wardrobe/img5.jpg" alt="Full Height Wardrobe" class="w-full h-full object-cover">
+                </a>
+
+                <a href="wardrobe/img6.jpg" target="_blank" class="block rounded-lg overflow-hidden golden-border border-2 hover:opacity-80 transition duration-300">
+                    <img src="wardrobe/img6.jpg" alt="His and Hers Closet" class="w-full h-full object-cover">
+                </a>
+                
+            </div>
             
             <div class="text-center mt-12 mb-20">
                 <a href="Lambo-Code.html#contact">
@@ -100,7 +105,7 @@
     </div>
 
     <script>
-        // Initialize Vanta.js globe on this page too
+        // Initialize Vanta.js globe on this page
         VANTA.GLOBE({
             el: "#vanta-bg",
             mouseControls: true,
@@ -114,11 +119,10 @@
             backgroundColor: 0x0,
             size: 0.8,
             speed: 0.7,
-            backgroundAlpha: 0.2 // Set a low alpha so the main overlay can still darken it
+            backgroundAlpha: 0.2
         });
         
         feather.replace();
     </script>
 </body>
-
 </html>
