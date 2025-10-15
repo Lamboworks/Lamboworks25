@@ -57,7 +57,7 @@
             </p>
 
             <div class="text-center mb-10">
-                <a href="Lambo-Code.html#services">
+                <a href="Lambo-Code.html">
                     <button class="px-8 py-3 golden-border border-2 rounded-full golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300 flex items-center mx-auto">
                         <i data-feather="arrow-left" class="mr-2"></i>
                         Back to Services
@@ -94,17 +94,75 @@
             </div>
             
             <div class="text-center mt-12 mb-20">
-                <a href="Lambo-Code.html#contact">
-                    <button class="px-8 py-3 golden-border border-2 rounded-full golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
-                        Request a Quote
-                    </button>
-                </a>
+                <button id="open-quote-modal-gallery" class="px-8 py-3 golden-border border-2 rounded-full golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
+                    Request a Quote
+                </button>
             </div>
 
         </div>
     </div>
+    
+    <div id="quote-modal" class="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm z-[2000] hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 golden-border border-2 p-8 rounded-lg max-w-lg w-full relative animate__animated animate__fadeInUp">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white transition duration-300">
+                <i data-feather="x" class="w-6 h-6 golden-text"></i>
+            </button>
+            <h2 class="text-3xl font-bold golden-text mb-4">Start Your Golden Transformation</h2>
+            <p class="text-gray-300 mb-6">Tell us about your project, and a specialist will contact you shortly.</p>
+            
+            <form action="#" method="POST">
+                <div class="space-y-4">
+                    <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded bg-gray-800 golden-text focus:golden-border border-2 focus:outline-none">
+                    <input type="email" name="email" placeholder="Email Address" required class="w-full p-3 rounded bg-gray-800 golden-text focus:golden-border border-2 focus:outline-none">
+                    <input type="tel" name="phone" placeholder="Phone Number" class="w-full p-3 rounded bg-gray-800 golden-text focus:golden-border border-2 focus:outline-none">
+                    <textarea name="message" placeholder="Describe your project (e.g., Modular Wardrobe)" rows="4" required class="w-full p-3 rounded bg-gray-800 golden-text focus:golden-border border-2 focus:outline-none"></textarea>
+                </div>
+                <button type="submit" class="mt-6 w-full py-3 golden-border border-2 rounded-lg golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300 font-semibold">
+                    Send Request
+                </button>
+            </form>
+        </div>
+    </div>
 
     <script>
+        // Modal logic for "Request a Quote" button (Added to blurry.html)
+        const modal = document.getElementById('quote-modal');
+        const openModalButton = document.getElementById('open-quote-modal-gallery');
+        const closeModalButton = document.getElementById('close-modal');
+
+        // Function to open the modal
+        function openModal() {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevents background scrolling
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restores background scrolling
+        }
+
+        // Attach event listeners to buttons
+        if (openModalButton) {
+            openModalButton.addEventListener('click', openModal);
+        }
+        if (closeModalButton) {
+            closeModalButton.addEventListener('click', closeModal);
+        }
+        
+        // Close modal if user clicks outside of it
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+        // Close modal if user presses the Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
         // Initialize Vanta.js globe on this page
         VANTA.GLOBE({
             el: "#vanta-bg",
