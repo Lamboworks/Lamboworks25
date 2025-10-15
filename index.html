@@ -8,7 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-VDw5mF4+p0G/X4j2pU01n2pB4iJ3pW9vP2S14P13+3rF4v2N0h2Qy3v84F3w62Lw4" crossorigin="anonymous"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
         
@@ -28,56 +27,17 @@
             border-color: #D4AF37;
         }
         
-        /* New CSS for the 3D Flip Effect */
-        .service-card-container {
-            perspective: 1000px; /* Required for 3D effect */
-            min-height: 20rem; 
-        }
-        
-        .service-flip-card {
+        /* Service Card Styling (No Flip CSS) */
+        .service-card {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
-            /* FIX: Slowed and Smoothed Transition */
-            transition: transform 1.2s; 
-            transform-style: preserve-3d; /* Required for 3D effect */
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border: 1px solid #D4AF37;
-            overflow: hidden; 
-            border-radius: 0.5rem;
+            /* New: Gentle lift on hover */
+            transition: all 0.3s ease;
         }
         
-        .service-flip-card:hover {
-            transform: rotateY(180deg);
+        .service-card:hover {
+            transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .card-face {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            /* FIX: This makes the back side of the face invisible when rotated */
-            backface-visibility: hidden; 
-            border-radius: 0.5rem;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card-front {
-            z-index: 2;
-        }
-        
-        .card-back {
-            /* Pre-rotate the back face 180 degrees so it faces the user when the main card is flipped */
-            transform: rotateY(180deg); 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: rgba(40, 30, 0, 0.8);
         }
         
         .nav-link {
@@ -99,20 +59,12 @@
             width: 100%;
         }
         
+        /* Ensures content flows correctly and pushes the button to the bottom */
         .card-content-wrapper {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-        }
-        
-        /* Styling for the static Contact Card */
-        .static-card {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid #D4AF37;
-            border-radius: 0.5rem;
-            padding: 2.5rem; /* Equivalent to p-10 */
         }
     </style>
 </head>
@@ -146,129 +98,103 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <div class="service-card-container">
-                    <a href="service-details.html?service=ceiling" class="block w-full h-full no-underline">
-                        <div class="service-flip-card" data-service="ceiling">
-                            <div class="card-face card-front">
-                                <div class="card-content-wrapper">
-                                    <div class="text-5xl golden-text mb-6">
-                                        <i data-feather="layers"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold golden-text mb-4">False Ceiling & Lighting</h3>
-                                    <p class="text-gray-300">Elevate your interiors with our premium false ceiling designs and ambient lighting solutions.</p>
-                                </div>
-                                <div class="mt-4 flex items-center text-yellow-400">
-                                    <i data-feather="star" class="mr-2"></i>
-                                    <span class="text-sm">Founding Client Special</span>
-                                </div>
-                            </div>
-                            <div class="card-face card-back">
-                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
-                            </div>
+                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
+                    <div class="card-content-wrapper">
+                        <div class="text-5xl golden-text mb-6">
+                            <i data-feather="layers"></i>
                         </div>
+                        <h3 class="text-2xl font-bold golden-text mb-4">False Ceiling & Lighting</h3>
+                        <p class="text-gray-300 mb-4">Elevate your interiors with our premium false ceiling designs and ambient lighting solutions.</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i data-feather="star" class="mr-2"></i>
+                            <span class="text-sm">Founding Client Special</span>
+                        </div>
+                    </div>
+                    <a href="service-details.html?service=ceiling" class="mt-6 block">
+                        <button class="w-full py-2 golden-border border rounded golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
+                            View Details
+                        </button>
                     </a>
                 </div>
                 
-                <div class="service-card-container">
-                    <a href="service-details.html?service=wardrobes" class="block w-full h-full no-underline">
-                        <div class="service-flip-card" data-service="wardrobes">
-                            <div class="card-face card-front">
-                                <div class="card-content-wrapper">
-                                    <div class="text-5xl golden-text mb-6">
-                                        <i data-feather="box"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold golden-text mb-4">Modular Wardrobes</h3>
-                                    <p class="text-gray-300">Custom-designed wardrobes that maximize space while adding elegance to your rooms.</p>
-                                </div>
-                                <div class="mt-4 flex items-center text-yellow-400">
-                                    <i data-feather="check-circle" class="mr-2"></i>
-                                    <span class="text-sm">5-Year Warranty</span>
-                                </div>
-                            </div>
-                            <div class="card-face card-back">
-                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
-                            </div>
+                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
+                    <div class="card-content-wrapper">
+                        <div class="text-5xl golden-text mb-6">
+                            <i data-feather="box"></i>
                         </div>
+                        <h3 class="text-2xl font-bold golden-text mb-4">Modular Wardrobes</h3>
+                        <p class="text-gray-300 mb-4">Custom-designed wardrobes that maximize space while adding elegance to your rooms.</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i data-feather="check-circle" class="mr-2"></i>
+                            <span class="text-sm">5-Year Warranty</span>
+                        </div>
+                    </div>
+                    <button class="mt-6 w-full py-2 border rounded text-gray-500 border-gray-500 cursor-default">
+                        Gallery Coming Soon
+                    </button>
+                </div>
+                
+                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
+                    <div class="card-content-wrapper">
+                        <div class="text-5xl golden-text mb-6">
+                            <i data-feather="home"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold golden-text mb-4">House Construction & Renovation</h3>
+                        <p class="text-gray-300 mb-4">From ground-up construction to complete home makeovers, we build dreams into reality.</p>
+                        <div class="flex items-center text-yellow-400">
+                            <i data-feather="check-circle" class="mr-2"></i>
+                            <span class="text-sm">Licensed & Insured</span>
+                        </div>
+                    </div>
+                    <a href="service-details.html?service=construction" class="mt-6 block">
+                        <button class="w-full py-2 golden-border border rounded golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
+                            View Details
+                        </button>
                     </a>
                 </div>
                 
-                <div class="service-card-container">
-                    <a href="service-details.html?service=construction" class="block w-full h-full no-underline">
-                        <div class="service-flip-card" data-service="construction">
-                            <div class="card-face card-front">
-                                <div class="card-content-wrapper">
-                                    <div class="text-5xl golden-text mb-6">
-                                        <i data-feather="home"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold golden-text mb-4">House Construction & Renovation</h3>
-                                    <p class="text-gray-300">From ground-up construction to complete home makeovers, we build dreams into reality.</p>
-                                </div>
-                                <div class="mt-4 flex items-center text-yellow-400">
-                                    <i data-feather="check-circle" class="mr-2"></i>
-                                    <span class="text-sm">Licensed & Insured</span>
-                                </div>
-                            </div>
-                            <div class="card-face card-back">
-                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
-                            </div>
+                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
+                    <div class="card-content-wrapper">
+                        <div class="text-5xl golden-text mb-6">
+                            <i data-feather="tool"></i>
                         </div>
+                        <h3 class="text-2xl font-bold golden-text mb-4">Carpentry, Painting, Plumbing, Electrical</h3>
+                        <p class="text-gray-300 mb-4">Comprehensive home improvement services with unmatched craftsmanship.</p>
+                    </div>
+                    <a href="service-details.html?service=maintenance" class="mt-6 block">
+                        <button class="w-full py-2 golden-border border rounded golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
+                            View Details
+                        </button>
                     </a>
                 </div>
                 
-                <div class="service-card-container">
-                    <a href="service-details.html?service=maintenance" class="block w-full h-full no-underline">
-                        <div class="service-flip-card" data-service="maintenance">
-                            <div class="card-face card-front">
-                                <div class="card-content-wrapper">
-                                    <div class="text-5xl golden-text mb-6">
-                                        <i data-feather="tool"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold golden-text mb-4">Carpentry, Painting, Plumbing, Electrical</h3>
-                                    <p class="text-gray-300">Comprehensive home improvement services with unmatched craftsmanship.</p>
-                                </div>
-                            </div>
-                            <div class="card-face card-back">
-                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
-                            </div>
+                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
+                    <div class="card-content-wrapper">
+                        <div class="text-5xl golden-text mb-6">
+                            <i data-feather="dollar-sign"></i>
                         </div>
+                        <h3 class="text-2xl font-bold golden-text mb-4">Real Estate Services</h3>
+                        <p class="text-gray-300 mb-4">Buy | Sell | Rent | Lease - Residential & Commercial properties across Coastal Andhra.</p>
+                    </div>
+                    <a href="service-details.html?service=realestate" class="mt-6 block">
+                        <button class="w-full py-2 golden-border border rounded golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
+                            View Details
+                        </button>
                     </a>
                 </div>
                 
-                <div class="service-card-container">
-                    <a href="service-details.html?service=realestate" class="block w-full h-full no-underline">
-                        <div class="service-flip-card" data-service="realestate">
-                            <div class="card-face card-front">
-                                <div class="card-content-wrapper">
-                                    <div class="text-5xl golden-text mb-6">
-                                        <i data-feather="dollar-sign"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold golden-text mb-4">Real Estate Services</h3>
-                                    <p class="text-gray-300">Buy | Sell | Rent | Lease - Residential & Commercial properties across Coastal Andhra.</p>
-                                </div>
-                            </div>
-                            <div class="card-face card-back">
-                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
-                            </div>
+                <div class="p-8 rounded-lg golden-border border service-card h-full flex flex-col justify-between">
+                    <div class="card-content-wrapper">
+                        <div class="text-5xl golden-text mb-6">
+                            <i data-feather="award"></i>
                         </div>
-                    </a>
-                </div>
-                
-                <div class="service-card-container">
-                    <a href="service-details.html?service=marksmen" class="block w-full h-full no-underline">
-                        <div class="service-flip-card" data-service="marksmen">
-                            <div class="card-face card-front">
-                                <div class="card-content-wrapper">
-                                    <div class="text-5xl golden-text mb-6">
-                                        <i data-feather="award"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold golden-text mb-4">Skilled Marksmen</h3>
-                                    <p class="text-gray-300">Our craftsmen deliver perfection in every detail, ensuring flawless execution.</p>
-                                </div>
-                            </div>
-                            <div class="card-face card-back">
-                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
-                            </div>
-                        </div>
+                        <h3 class="text-2xl font-bold golden-text mb-4">Skilled Marksmen</h3>
+                        <p class="text-gray-300 mb-4">Our craftsmen deliver perfection in every detail, ensuring flawless execution.</p>
+                    </div>
+                    <a href="service-details.html?service=marksmen" class="mt-6 block">
+                        <button class="w-full py-2 golden-border border rounded golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
+                            View Details
+                        </button>
                     </a>
                 </div>
             </div>
@@ -303,7 +229,7 @@
         
         <section id="contact" class="container mx-auto px-6 py-20">
             <h2 class="text-4xl font-bold golden-text mb-16 text-center">Begin Your Golden Transformation</h2>
-            <div class="max-w-2xl mx-auto static-card"> 
+            <div class="max-w-2xl mx-auto p-10 rounded-lg golden-border border bg-black/70 backdrop-blur-md"> 
                 <form>
                     <div class="mb-6">
                         <label class="block golden-text mb-2">Your Name</label>
@@ -426,15 +352,7 @@
             });
         });
 
-        // The entrance animation now only targets the flippable service cards
-        anime({
-            targets: '.service-flip-card',
-            scale: [0.95, 1],
-            easing: 'easeInOutSine',
-            duration: 1500,
-            delay: anime.stagger(100)
-        });
-
+        // Removed all complex anime.js card animations for simplicity and performance.
     </script>
 </body>
 </html>
