@@ -28,25 +28,24 @@
             border-color: #D4AF37;
         }
         
-        /* FIX 1: NEW CLASS FOR FLIPPABLE CARDS ONLY */
+        /* New CSS for the 3D Flip Effect */
         .service-card-container {
-            perspective: 1000px;
-            /* Ensures all containers are the same height in the grid to prevent layout collapse */
+            perspective: 1000px; /* Required for 3D effect */
             min-height: 20rem; 
         }
         
         .service-flip-card {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
-            /* FIX 2: Increased transition time for a smooth, slow flip */
-            transition: all 1.2s; 
-            transform-style: preserve-3d;
+            /* FIX: Slowed and Smoothed Transition */
+            transition: transform 1.2s; 
+            transform-style: preserve-3d; /* Required for 3D effect */
             position: relative;
             width: 100%;
             height: 100%;
             border: 1px solid #D4AF37;
-            /* Prevents any content from leaking outside the 3D card boundaries */
             overflow: hidden; 
+            border-radius: 0.5rem;
         }
         
         .service-flip-card:hover {
@@ -54,11 +53,12 @@
             box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
         }
 
-        .service-card-front, .service-card-back {
+        .card-face {
             position: absolute;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden;
+            /* FIX: This makes the back side of the face invisible when rotated */
+            backface-visibility: hidden; 
             border-radius: 0.5rem;
             padding: 2rem;
             display: flex;
@@ -66,12 +66,13 @@
             justify-content: space-between;
         }
 
-        .service-card-front {
+        .card-front {
             z-index: 2;
         }
         
-        .service-card-back {
-            transform: rotateY(180deg);
+        .card-back {
+            /* Pre-rotate the back face 180 degrees so it faces the user when the main card is flipped */
+            transform: rotateY(180deg); 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -103,6 +104,15 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
+        }
+        
+        /* Styling for the static Contact Card */
+        .static-card {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid #D4AF37;
+            border-radius: 0.5rem;
+            padding: 2.5rem; /* Equivalent to p-10 */
         }
     </style>
 </head>
@@ -138,8 +148,8 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=ceiling" class="block w-full h-full no-underline">
-                        <div class="service-flip-card rounded-lg" data-service="ceiling">
-                            <div class="service-card-front">
+                        <div class="service-flip-card" data-service="ceiling">
+                            <div class="card-face card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
                                         <i data-feather="layers"></i>
@@ -152,8 +162,8 @@
                                     <span class="text-sm">Founding Client Special</span>
                                 </div>
                             </div>
-                            <div class="service-card-back">
-                                <span class="text-xl golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
+                            <div class="card-face card-back">
+                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
                             </div>
                         </div>
                     </a>
@@ -161,8 +171,8 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=wardrobes" class="block w-full h-full no-underline">
-                        <div class="service-flip-card rounded-lg" data-service="wardrobes">
-                            <div class="service-card-front">
+                        <div class="service-flip-card" data-service="wardrobes">
+                            <div class="card-face card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
                                         <i data-feather="box"></i>
@@ -175,8 +185,8 @@
                                     <span class="text-sm">5-Year Warranty</span>
                                 </div>
                             </div>
-                            <div class="service-card-back">
-                                <span class="text-xl golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
+                            <div class="card-face card-back">
+                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
                             </div>
                         </div>
                     </a>
@@ -184,8 +194,8 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=construction" class="block w-full h-full no-underline">
-                        <div class="service-flip-card rounded-lg" data-service="construction">
-                            <div class="service-card-front">
+                        <div class="service-flip-card" data-service="construction">
+                            <div class="card-face card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
                                         <i data-feather="home"></i>
@@ -198,8 +208,8 @@
                                     <span class="text-sm">Licensed & Insured</span>
                                 </div>
                             </div>
-                            <div class="service-card-back">
-                                <span class="text-xl golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
+                            <div class="card-face card-back">
+                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
                             </div>
                         </div>
                     </a>
@@ -207,8 +217,8 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=maintenance" class="block w-full h-full no-underline">
-                        <div class="service-flip-card rounded-lg" data-service="maintenance">
-                            <div class="service-card-front">
+                        <div class="service-flip-card" data-service="maintenance">
+                            <div class="card-face card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
                                         <i data-feather="tool"></i>
@@ -216,9 +226,9 @@
                                     <h3 class="text-2xl font-bold golden-text mb-4">Carpentry, Painting, Plumbing, Electrical</h3>
                                     <p class="text-gray-300">Comprehensive home improvement services with unmatched craftsmanship.</p>
                                 </div>
-                                </div>
-                            <div class="service-card-back">
-                                <span class="text-xl golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
+                            </div>
+                            <div class="card-face card-back">
+                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
                             </div>
                         </div>
                     </a>
@@ -226,8 +236,8 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=realestate" class="block w-full h-full no-underline">
-                        <div class="service-flip-card rounded-lg" data-service="realestate">
-                            <div class="service-card-front">
+                        <div class="service-flip-card" data-service="realestate">
+                            <div class="card-face card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
                                         <i data-feather="dollar-sign"></i>
@@ -235,9 +245,9 @@
                                     <h3 class="text-2xl font-bold golden-text mb-4">Real Estate Services</h3>
                                     <p class="text-gray-300">Buy | Sell | Rent | Lease - Residential & Commercial properties across Coastal Andhra.</p>
                                 </div>
-                                </div>
-                            <div class="service-card-back">
-                                <span class="text-xl golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
+                            </div>
+                            <div class="card-face card-back">
+                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
                             </div>
                         </div>
                     </a>
@@ -245,8 +255,8 @@
                 
                 <div class="service-card-container">
                     <a href="service-details.html?service=marksmen" class="block w-full h-full no-underline">
-                        <div class="service-flip-card rounded-lg" data-service="marksmen">
-                            <div class="service-card-front">
+                        <div class="service-flip-card" data-service="marksmen">
+                            <div class="card-face card-front">
                                 <div class="card-content-wrapper">
                                     <div class="text-5xl golden-text mb-6">
                                         <i data-feather="award"></i>
@@ -254,9 +264,9 @@
                                     <h3 class="text-2xl font-bold golden-text mb-4">Skilled Marksmen</h3>
                                     <p class="text-gray-300">Our craftsmen deliver perfection in every detail, ensuring flawless execution.</p>
                                 </div>
-                                </div>
-                            <div class="service-card-back">
-                                <span class="text-xl golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
+                            </div>
+                            <div class="card-face card-back">
+                                <span class="text-xl font-bold golden-text animate__animated animate__flash animate__infinite">Under Construction</span>
                             </div>
                         </div>
                     </a>
@@ -293,8 +303,7 @@
         
         <section id="contact" class="container mx-auto px-6 py-20">
             <h2 class="text-4xl font-bold golden-text mb-16 text-center">Begin Your Golden Transformation</h2>
-            <div class="max-w-2xl mx-auto"> 
-                <div class="rounded-lg p-10 golden-border border-2 bg-black/70 backdrop-blur-md">
+            <div class="max-w-2xl mx-auto static-card"> 
                 <form>
                     <div class="mb-6">
                         <label class="block golden-text mb-2">Your Name</label>
@@ -341,7 +350,6 @@
                         </div>
                     </div>
                 </form>
-            </div>
             </div>
         </section>
         
