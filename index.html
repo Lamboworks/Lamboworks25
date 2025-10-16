@@ -19,6 +19,11 @@
             padding-top: 80px; 
         }
         
+        /* Custom Z-index for the absolute lowest background layer */
+        .z-negative-1 {
+            z-index: -1;
+        }
+
         .golden-text {
             color: #D4AF37;
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
@@ -65,7 +70,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
+            z-index: 0; /* Above the static logo background */
             overflow: hidden;
         }
 
@@ -109,6 +114,10 @@
     </style>
 </head>
 <body>
+    
+    <div class="fixed top-0 left-0 w-full h-full z-negative-1 bg-cover bg-center opacity-20" 
+         style="background-image: url('https://enzostvs-deepsite.hf.space/_next/image?url=https%3A%2F%2Fhuggingface.co%2Fspaces%2FLamboworks%2Flambo-luxe-builders%2Fresolve%2Fmain%2Fimages%2FLogo.png&w=128&q=75')">
+    </div>
     <div id="slideshow-container">
         <img class="slideshow-image active" src="placeholder-image-1.jpg" alt="Lambo Works Project 1">
         <img class="slideshow-image" src="placeholder-image-2.jpg" alt="Lambo Works Project 2">
@@ -258,7 +267,6 @@
             <div class="max-w-2xl mx-auto service-card p-10 rounded-lg golden-border border">
                 <form id="contact-form">
                     
-                    <input type="hidden" name="_cc" value="Lamboworks25@gmail.com" />
                     <input type="hidden" name="_subject" value="New Quote Request from Lambo Works Website" />
 
                     <div class="mb-6">
