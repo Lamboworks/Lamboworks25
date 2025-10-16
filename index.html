@@ -387,8 +387,9 @@
                     popup.style.display = 'flex';
                     form.reset();
                 } else {
-                    // Failure (e.g., rate limit, bad request): Show a default alert
-                    alert("Oops! There was an issue submitting the form. Please try again or contact us directly.");
+                    // Failure (e.g., Formspree validation, server error): Show error alert
+                    // Formspree returns an error response on failure (e.g., missing required fields)
+                    alert("Oops! There was an issue submitting the form. Please check all required fields and try again.");
                     console.error("Formspree response not OK:", await response.json());
                 }
             } catch (error) {
@@ -409,6 +410,9 @@
 
         function startSlideshow() {
             if (images.length === 0) return; // Exit if no images found
+
+            // Ensure the first image is active initially
+            images[0].classList.add('active'); 
 
             setInterval(() => {
                 // Hide current image
