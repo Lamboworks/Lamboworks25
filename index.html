@@ -16,6 +16,8 @@
             background-color: #000;
             color: #D4AF37;
             overflow-x: hidden;
+            /* Add padding to the top of the body to account for the fixed nav bar */
+            padding-top: 80px; 
         }
         
         .golden-text {
@@ -60,26 +62,38 @@
 </head>
 <body>
     <div class="fixed top-0 left-0 w-full h-full z-0 bg-cover bg-center opacity-20" style="background-image: url('https://enzostvs-deepsite.hf.space/_next/image?url=https%3A%2F%2Fhuggingface.co%2Fspaces%2FLamboworks%2Flambo-luxe-builders%2Fresolve%2Fmain%2Fimages%2FLogo.png&w=128&q=75')"></div>
-<div class="relative z-10">
-        <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
-            <img src="https://enzostvs-deepsite.hf.space/_next/image?url=https%3A%2F%2Fhuggingface.co%2Fspaces%2FLamboworks%2Flambo-luxe-builders%2Fresolve%2Fmain%2Fimages%2FLogo.png&w=128&q=75" alt="Lambo Works Logo" class="h-12 animate__animated animate__fadeInDown">
-<div class="hidden md:flex space-x-10">
+    
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-90 border-b golden-border border-opacity-20">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://enzostvs-deepsite.hf.space/_next/image?url=https%3A%2F%2Fhuggingface.co%2Fspaces%2FLamboworks%2Flambo-luxe-builders%2Fresolve%2Fmain%2Fimages%2FLogo.png&w=128&q=75" alt="Lambo Works Logo" class="h-10 animate__animated animate__fadeInDown">
+                <span class="text-xl font-bold golden-text hidden sm:block">Lambo Works</span>
+            </div>
+
+            <div class="hidden md:flex space-x-10">
                 <a href="#home" class="nav-link golden-text">Home</a>
                 <a href="#services" class="nav-link golden-text">Services</a>
                 <a href="#about" class="nav-link golden-text">About</a>
                 <a href="#contact" class="nav-link golden-text">Contact</a>
             </div>
+            
             <div class="md:hidden">
                 <i data-feather="menu" class="golden-text cursor-pointer"></i>
             </div>
-        </nav>
+        </div>
+    </nav>
+    
+    <div class="relative z-10">
         
         <section id="home" class="container mx-auto px-6 py-32 text-center">
             <h1 class="text-5xl md:text-7xl font-bold golden-text mb-6 animate__animated animate__fadeIn animate__delay-1s">Crafting Tomorrow's Masterpieces Today</h1>
             <p class="text-xl golden-text mb-10 max-w-2xl mx-auto animate__animated animate__fadeIn animate__delay-2s">Launching Our Craftsmanship | Passionate Team | Satisfaction Guarantee</p>
-<button class="px-8 py-3 golden-border border-2 rounded-full golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
-                Get Your Free Consultation
-            </button>
+            
+            <a href="#contact" class="inline-block">
+                <button class="px-8 py-3 golden-border border-2 rounded-full golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
+                    Get Your Free Consultation
+                </button>
+            </a>
         </section>
         
         <section id="services" class="container mx-auto px-6 py-20">
@@ -95,7 +109,7 @@
                         <i data-feather="star" class="mr-2"></i>
                         <span class="text-sm">Founding Client Special</span>
                     </div>
-</div>
+                </div>
                 
                 <div class="service-card p-8 rounded-lg golden-border border">
                     <div class="text-5xl golden-text mb-6">
@@ -112,7 +126,7 @@
                             View Gallery
                         </button>
                     </a>
-</div>
+                </div>
                 
                 <div class="service-card p-8 rounded-lg golden-border border">
                     <div class="text-5xl golden-text mb-6">
@@ -124,7 +138,7 @@
                         <i data-feather="check-circle" class="mr-2"></i>
                         <span class="text-sm">Licensed & Insured</span>
                     </div>
-</div>
+                </div>
                 
                 <div class="service-card p-8 rounded-lg golden-border border">
                     <div class="text-5xl golden-text mb-6">
@@ -164,7 +178,7 @@
                         We're excited to launch our services and looking for our first showcase project. 
                         Your home will receive our undivided attention and become our top priority.
                     </p>
-<p class="text-gray-300">
+                    <p class="text-gray-300">
                         Currently serving all major cities in Coastal Andhra Pradesh, we're ready to transform your living spaces into golden showcases of elegance and functionality.
                     </p>
                 </div>
@@ -182,18 +196,18 @@
         <section id="contact" class="container mx-auto px-6 py-20">
             <h2 class="text-4xl font-bold golden-text mb-16 text-center">Begin Your Golden Transformation</h2>
             <div class="max-w-2xl mx-auto service-card p-10 rounded-lg golden-border border">
-                <form>
+                <form action="mailto:Lamboworks25@gmail.com" method="post" enctype="text/plain">
                     <div class="mb-6">
-                        <label class="block golden-text mb-2">Your Name</label>
-                        <input type="text" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600">
+                        <label for="name" class="block golden-text mb-2">Your Name</label>
+                        <input type="text" id="name" name="Name" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600">
                     </div>
                     <div class="mb-6">
-                        <label class="block golden-text mb-2">Contact Number</label>
-                        <input type="tel" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600">
+                        <label for="number" class="block golden-text mb-2">Contact Number</label>
+                        <input type="tel" id="number" name="Contact_Number" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600">
                     </div>
                     <div class="mb-6">
-                        <label class="block golden-text mb-2">Service Interest</label>
-                        <select class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600">
+                        <label for="service" class="block golden-text mb-2">Service Interest</label>
+                        <select id="service" name="Service_Interest" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600">
                             <option>False Ceiling & Lighting</option>
                             <option>Modular Wardrobes</option>
                             <option>House Construction & Renovation</option>
@@ -202,16 +216,16 @@
                         </select>
                     </div>
                     <div class="mb-6">
-                        <label class="block golden-text mb-2">Message</label>
-                        <textarea class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600" rows="4"></textarea>
+                        <label for="message" class="block golden-text mb-2">Message</label>
+                        <textarea id="message" name="Message" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600" rows="4"></textarea>
                     </div>
                     <div class="mb-6">
-                        <label class="block golden-text mb-2">Email</label>
-                        <input type="email" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600">
+                        <label for="email" class="block golden-text mb-2">Email</label>
+                        <input type="email" id="email" name="Email_Address" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600">
                     </div>
                     <div class="mb-6">
-                        <label class="block golden-text mb-2">Location</label>
-                        <input type="text" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600">
+                        <label for="location" class="block golden-text mb-2">Location</label>
+                        <input type="text" id="location" name="Location" class="w-full bg-black bg-opacity-50 golden-border border rounded px-4 py-2 golden-text focus:outline-none focus:ring-1 focus:ring-yellow-600">
                     </div>
                     <button type="submit" class="w-full py-3 golden-border border-2 rounded-full golden-text hover:bg-yellow-900 hover:bg-opacity-20 transition duration-300">
                         Submit Request
@@ -227,14 +241,14 @@
                             <span>contact@lamboworks.com</span>
                         </div>
                     </div>
-</form>
+                </form>
             </div>
         </section>
         
         <footer class="container mx-auto px-6 py-12 border-t golden-border border-opacity-20">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="text-2xl font-bold golden-text mb-6 md:mb-0 animate__animated animate__fadeIn">Lambo Works</div>
-<div class="flex space-x-6">
+                <div class="flex space-x-6">
                     <a href="#" class="golden-text hover:text-yellow-600 transition duration-300">
                         <i data-feather="facebook"></i>
                     </a>
@@ -265,8 +279,8 @@
                     </div>
                 </div>
                 <p>© 2023 Lambo Works. Bringing fresh energy to Coastal Andhra Pradesh's construction scene.</p>
-<p class="mt-2">Special inaugural pricing for our first clients!</p>
-</div>
+                <p class="mt-2">Special inaugural pricing for our first clients!</p>
+            </div>
         </footer>
     </div>
 
@@ -279,7 +293,7 @@
 
         // Initialize Vanta.js globe with more dynamic settings
         VANTA.GLOBE({
-el: "#vanta-bg",
+            el: "#vanta-bg",
             mouseControls: true,
             touchControls: true,
             gyroControls: false,
@@ -292,11 +306,13 @@ el: "#vanta-bg",
             size: 0.8,
             speed: 0.7,
             backgroundAlpha: 0
-});
+        });
+        
         // Initialize Feather Icons
         feather.replace();
 
-        // Floating animation for trust badges
+        // Floating animation for trust badges (This section is not being used in the current version of the code provided)
+        /*
         setInterval(() => {
             anime({
                 targets: '.service-card',
@@ -307,7 +323,8 @@ el: "#vanta-bg",
                 delay: anime.stagger(200)
             });
         }, 5000);
-        // Focus animation for service cards
+        
+        // Focus animation for service cards (This section is not being used in the current version of the code provided)
         anime({
             targets: '.service-card',
             scale: [0.95, 1],
@@ -315,22 +332,25 @@ el: "#vanta-bg",
             duration: 1500,
             delay: anime.stagger(100)
         });
+        */
         
-        // Smooth scrolling for internal anchor links
+        // Smooth scrolling for internal anchor links (Used by nav links and the new "Consultation" button)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                // Check if the target is the contact section and if it should scroll
+                const targetId = this.getAttribute('href');
+                if (targetId === '#contact' || document.querySelector(targetId)) {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
-        // <----------------- FINAL FIX JAVASCRIPT IS HERE ----------------->
-        // This function runs once the page loads and forces a scroll if coming from the gallery.
+        // Script to automatically scroll to #services if coming from blurry.html
         window.onload = function() {
             if (document.referrer.includes('blurry.html')) {
-                // If the user came from blurry.html, scroll to services
                 const services = document.getElementById('services');
                 if (services) {
                     services.scrollIntoView({
@@ -338,7 +358,6 @@ el: "#vanta-bg",
                     });
                 }
             } else if (window.location.hash) {
-                // This handles standard internal links if they have a hash
                 const target = document.querySelector(window.location.hash);
                 if (target) {
                     target.scrollIntoView({
@@ -347,7 +366,6 @@ el: "#vanta-bg",
                 }
             }
         };
-        // <---------------------------------------------------------------->
     </script>
 </body>
 </html>
